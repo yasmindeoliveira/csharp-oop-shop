@@ -14,7 +14,7 @@ namespace CSharpShop
         private int codice;
         private string nome;
         private string descrizione;
-        private float prezzo;
+        private double prezzo;
         private int iva;
 
         // COSTRUTTORI
