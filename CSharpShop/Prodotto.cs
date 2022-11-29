@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -90,9 +91,35 @@ namespace CSharpShop
             Console.WriteLine("Codice: \t" + GetCodice());
             Console.WriteLine("Nome: \t\t" + GetNome());
             Console.WriteLine("Descrizione: \t" + GetDescrizione());
-            Console.WriteLine("Prezzo: \t" + GetPrezzo() + " Euro");
-            Console.WriteLine("IVA: \t\t" + GetIVA() + "%");
+            Console.WriteLine("Prezzo: \t" + PrezzoIVA());
+            Console.WriteLine("di cui IVA: \t" + GetIVA() + "%");
+            Console.WriteLine("Nome Esteso: \t" + CodiceNome());
             Console.WriteLine("----------------------------------------------------");
+        }
+
+        public string PrezzoBase()
+        {
+            string prezzoBase;
+            prezzoBase = (this.prezzo).ToString();
+            prezzoBase += " Euro";
+            return prezzoBase;
+        }
+
+        public string PrezzoIVA()
+        {
+            string prezzoIVA;
+            double prezzo = (this.prezzo + (this.prezzo * this.iva / 100));
+            prezzoIVA = prezzo.ToString();
+            prezzoIVA += " Euro";
+            return prezzoIVA;
+        }
+
+        public string CodiceNome()
+        {
+            string codiceNome;
+            codiceNome = this.codice.ToString();
+            codiceNome += this.nome;
+            return codiceNome;
         }
     }
 }
