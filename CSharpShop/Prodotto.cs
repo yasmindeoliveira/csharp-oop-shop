@@ -26,6 +26,7 @@ namespace CSharpShop
 
         public Prodotto(string nome, string descrizione, float prezzo, int iva)
         {
+            this.codice = CodiceRandom();
             this.nome = nome;
             this.descrizione = descrizione;
             this.prezzo = prezzo;
@@ -46,7 +47,7 @@ namespace CSharpShop
         {
             return this.descrizione;
         }
-        public float GetPrezzo()
+        public double GetPrezzo()
         {
             return this.prezzo;
         }
@@ -65,7 +66,7 @@ namespace CSharpShop
         {
             this.descrizione = descrizione;
         }
-        public void SetPrezo(float prezo)
+        public void SetPrezo(double prezo)
         {
             this.prezzo = prezo;
         }
@@ -81,6 +82,17 @@ namespace CSharpShop
             Random random= new Random();
             int codiceRandom = random.Next(99999999 + 1);
             return codiceRandom;
+        }
+
+        public void Stampa()
+        {
+            Console.WriteLine("----------------------------------------------------");
+            Console.WriteLine("Codice: \t" + GetCodice());
+            Console.WriteLine("Nome: \t\t" + GetNome());
+            Console.WriteLine("Descrizione: \t" + GetDescrizione());
+            Console.WriteLine("Prezzo: \t" + GetPrezzo() + " Euro");
+            Console.WriteLine("IVA: \t\t" + GetIVA() + "%");
+            Console.WriteLine("----------------------------------------------------");
         }
     }
 }
